@@ -12,6 +12,10 @@ public class Guard : AIProfile
         {
             ExecuteProfile();
         }
+        if (DetectPlayer() == true)
+        {
+            OnPlayerDetected();
+        }
     }
 
     public override void ExecuteProfile()

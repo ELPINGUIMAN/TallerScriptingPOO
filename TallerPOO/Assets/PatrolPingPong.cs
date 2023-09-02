@@ -12,6 +12,10 @@ public class PatrolPingPong : AIProfile
     private void Update()
     {
         ExecuteProfile();
+        if (DetectPlayer() == true)
+        {
+            OnPlayerDetected();
+        }
     }
 
     public override void ExecuteProfile()

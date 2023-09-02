@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f25b1ba0ac4e154abb0493927d50399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewDistance: 5
+  viewDistance: 1
   waitForTurn: 3
   waypoints:
   - {fileID: 1867642268}
@@ -5349,7 +5349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c608d8132130f14584ad3a20f375024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewDistance: 5
+  viewDistance: 1
   waitForTurn: 3
   waypoints:
   - {fileID: 1867642268}
@@ -5465,7 +5465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb834fe902250164cb9c5193c8eb7300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewDistance: 5
+  viewDistance: 1
   waitForTurn: 3
 --- !u!1 &1860197255
 GameObject:
