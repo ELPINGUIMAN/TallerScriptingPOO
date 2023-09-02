@@ -6,6 +6,8 @@ public class Guard : AIProfile
 {
     private float nextTurnTime;
 
+    public float waitForTurn = 3f;
+
     private void Update()
     {
         if (Time.time >= nextTurnTime)

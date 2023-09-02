@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class AIProfile : MonoBehaviour
 {
     public float viewDistance = 5f;
-    public float waitForTurn = 3f;
 
     public abstract void ExecuteProfile();
 
