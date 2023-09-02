@@ -7,6 +7,12 @@ public class PatrolPingPong : AIProfile
     public Transform[] waypoints;
     private int currentWaypointIndex = 0;
     private bool isMovingForward = true;
+    public float moveSpeed = 2.0f;
+
+    private void Update()
+    {
+        ExecuteProfile();
+    }
 
     public override void ExecuteProfile()
     {
@@ -18,24 +24,29 @@ public class PatrolPingPong : AIProfile
 
         Vector2 targetPosition = waypoints[currentWaypointIndex].position;
 
-        transform.position = targetPosition;
+        Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
 
-        if (isMovingForward)
+        transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
+
+        float distanceToTarget = Vector2.Distance(transform.position, targetPosition);
+        if (distanceToTarget <= 0.1f)
         {
-            currentWaypointIndex++;
-            if (currentWaypointIndex >= waypoints.Length)
+            if (currentWaypointIndex == waypoints.Length - 1)
             {
-                currentWaypointIndex = waypoints.Length - 2;
                 isMovingForward = false;
             }
-        }
-        else
-        {
-            currentWaypointIndex--;
-            if (currentWaypointIndex < 0)
+            else if (currentWaypointIndex == 0)
             {
-                currentWaypointIndex = 1;
                 isMovingForward = true;
+            }
+
+            if (isMovingForward)
+            {
+                currentWaypointIndex++;
+            }
+            else
+            {
+                currentWaypointIndex--;
             }
         }
     }

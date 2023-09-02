@@ -7,6 +7,14 @@ public class PatrolCyclic : AIProfile
     public Transform[] waypoints;
     private int currentWaypointIndex = 0;
 
+    private Vector2 currentTarget;
+    public float moveSpeed = 2.0f;
+
+    private void Update()
+    {
+        ExecuteProfile();
+    }
+
     public override void ExecuteProfile()
     {
         if (waypoints.Length == 0)
@@ -17,13 +25,14 @@ public class PatrolCyclic : AIProfile
 
         Vector2 targetPosition = waypoints[currentWaypointIndex].position;
 
-        transform.position = targetPosition;
+        Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
 
-        currentWaypointIndex++;
+        transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
 
-        if (currentWaypointIndex >= waypoints.Length)
+        float distanceToTarget = Vector2.Distance(transform.position, targetPosition);
+        if (distanceToTarget <= 0.1f)
         {
-            currentWaypointIndex = 0;
+            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         }
     }
 

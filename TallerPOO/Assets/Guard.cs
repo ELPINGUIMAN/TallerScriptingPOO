@@ -6,6 +6,14 @@ public class Guard : AIProfile
 {
     private float nextTurnTime;
 
+    private void Update()
+    {
+        if (Time.time >= nextTurnTime)
+        {
+            ExecuteProfile();
+        }
+    }
+
     public override void ExecuteProfile()
     {
         if (Time.time >= nextTurnTime)
